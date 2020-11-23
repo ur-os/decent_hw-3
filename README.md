@@ -13,12 +13,12 @@ $ ./decent_hw_3 [split|recover]
 ```
 
 ### Split:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __*stdin:*__
+ - stdin:
 ```
 key
 n_share threshold
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __*stdout:*__
+ - stdout:
 ```
 key_shard_1
 ket_shard_2
@@ -27,14 +27,14 @@ key_shard_n
 ```
 
 ### Recover:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __*stdin:*__
+ - stdin:
 ```
 key_shard_1
 ket_shard_2
 ...
 key_shard_m
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __*stdout:*__
+ - stdout:
 ```
 key
 ```
