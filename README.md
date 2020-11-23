@@ -11,7 +11,8 @@ $ make
 ```
 $ ./decent_hw_3 [split|recover]
 ```
-##### Split:
+
+#### Split:
 <b> stdin:
 ```
 key
@@ -24,7 +25,8 @@ ket_shard_2
 ...
 key_shard_n
 ```
-##### Recover:
+ 
+#### Recover:
 <b>stdin:
 ```
 key_shard_1
@@ -32,7 +34,6 @@ ket_shard_2
 ...
 key_shard_m
 ```
-
 <b>stdout:
 ```
 key
@@ -45,16 +46,16 @@ key
 восстанавливает исходный ключ.
 
 ### Тестовый пример:
-##### Split:
+#### Split:
  - Ввели sha256 исходника нашей программы
  - Ввели на сколько шардов делим, и пороговое значение
 ![alter-text](https://sun9-34.userapi.com/jIns1YuFVexPQ4bcde5BTqyMUUa5InvtB42B8Q/lPFr0JQhmmk.jpg)
 Получаем 12 ключей.
-##### Recover:
+#### Recover:
  - Через stdin вводим 7 ключей из предыдущего пункта
 ![alter-text](https://sun9-40.userapi.com/qiBqD6USEur0LWzFcKm-byXFgiYV2drvO4Nvcg/aY7Gkf7Ra64.jpg)
 Получаем исходный ключ.
-##### Recover:
+#### Recover:
 (демонстрация ошибки)
 - Через stdin вводим 6 ключей из предыдущего пункта
 ![alter-text](https://sun9-21.userapi.com/vEFJeucbJXKyiBkDZJOGz6FhMH0fm2W48Qmg7A/0bjiMNNn2gQ.jpg)
