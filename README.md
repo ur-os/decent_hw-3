@@ -13,31 +13,31 @@ $ ./decent_hw_3 [split|recover]
 ```
 
 #### Split:
- stdin:
-```
-key
-n_share threshold
-```
- stdout:
-```
-key_shard_1
-ket_shard_2
-...
-key_shard_n
-```
+  stdin:
+ ```
+ key
+ n_share threshold
+ ```
+  stdout:
+ ```
+ key_shard_1
+ ket_shard_2
+ ...
+ key_shard_n
+ ```
  
 #### Recover:
- stdin:
-```
-key_shard_1
-ket_shard_2
-...
-key_shard_m
-```
- stdout:
-```
-key
-```
+  stdin:
+ ```
+ key_shard_1
+ ket_shard_2
+ ...
+ key_shard_m
+ ```
+  stdout:
+ ```
+ key
+ ```
 
 ### Краткое описание:
 Разделяет ключ на несколько шард-ключей, 
