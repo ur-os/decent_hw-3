@@ -3,17 +3,21 @@
 //
 
 #include "shared_scheme.h"
-std::vector<std::string> globalShares;
 
-void split() {
+int split() {
     using namespace CryptoPP;
 
     std::string pubKey;
     int nShares, threshold;
     std::cin >> pubKey;
     std::cin >> nShares >> threshold;
+    if(nShares < threshold || 2 > threshold) {
+        std::cout << "Wrong arguments. Rule:\n\t 2 < T <= N\n";
+        return -1;
+    }
 
-    AutoSeededRandomPool prng;  // maybe wrong, need RandomPool rng;
+
+    AutoSeededRandomPool prng;
     ChannelSwitch *channelSwitch;
     StringSource source(pubKey, false, new SecretSharing(prng,
                                                          threshold, nShares, channelSwitch = new ChannelSwitch,true));
@@ -21,22 +25,23 @@ void split() {
     vector_member_ptrs<StringSink> stringSinks(nShares);
     std::string channel;
 
+      // load sinks in channels
     for (int i = 0; i < nShares; i++) {
         stringSinks[i].reset(new StringSink(stringShares[i]));
         channel = WordToString<word32>(i);
         stringSinks[i]->Put((byte *)channel.data(), 4);
         channelSwitch->AddRoute(channel, *stringSinks[i], DEFAULT_CHANNEL);
     }
-
+      // process source to shares
     source.PumpAll();
-    for(auto i: stringShares){
-        i = string_to_hex(i);
-        globalShares.push_back(i);
-        std::cout << i << "\n";
+
+    for(const auto& i: stringShares){
+        std::cout << string_to_hex(i) << "\n";
     }
+    return 0;
 }
 
-void recover() {
+int recover() {
     using namespace CryptoPP;
 
     int threshold = 0;
@@ -46,14 +51,6 @@ void recover() {
         threshold++;
         stringShares.push_back(hex_to_string(in_buff));
     }
-//    for(const auto& i: stringShares)
-//        std::cout << i << '\n';
-//    std::cout << threshold << '\n';
-//    for(auto i: globalShares) {
-//        stringShares.push_back(hex_to_string(i));
-//        threshold++;
-//    }
-
 
 
     std::string channel;
@@ -70,14 +67,13 @@ void recover() {
         strSources[i]->Attach(new ChannelSwitch(recovery, channel));
     }
 
-    while (strSources[0]->Pump(256)) {
+    while (strSources[0]->Pump(256))
         for (int i = 1; i < threshold; i++)
             strSources[i]->Pump(256);
-    }
 
     for (int i=0; i<threshold; i++)
         strSources[i]->PumpAll();
 
-    std::cout << recovered << "\n" << recovered.length();
-
+    std::cout << recovered;
+    return 0;
 }

@@ -11,8 +11,8 @@
 #include <cryptopp/osrng.h>
 #include <cryptopp/channels.h>
 #include <cryptopp/filters.h>
-void split();
-void recover();
+int split();
+int recover();
 
 
 #endif //DECENT_HW_3_SHARED_SCHEME_H

@@ -34,12 +34,3 @@ std::string hex_to_string(std::string& in) {
 
     return output;
 }
-
-int parameter_processing(const std::string& mode) {
-    if(mode == "split")
-        return SPLIT;
-    if(mode == "recover")
-        return RECOVER;
-
-    return WRONG_ARGUMENTS;
-}
