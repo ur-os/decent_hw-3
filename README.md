@@ -1,23 +1,23 @@
 ## Домашнее задание №3
 
-#### Сборка с помощью cmake:
+### Сборка с помощью cmake:
 ```
 $ git clone git@github.com:ur-os/decent_hw-3.git
 $ cd decent_hw-3 && mkdir build && cd build
 $ cmake ../
 $ make
 ```
-#### Использование:
+### Использование:
 ```
 $ ./decent_hw_3 [split|recover]
 ```
 ##### Split:
->stdin:
+<b> stdin:
 ```
 key
 n_share threshold
 ```
->stdout:
+<b>stdout:
 ```
 key_shard_1
 ket_shard_2
@@ -25,7 +25,7 @@ ket_shard_2
 key_shard_n
 ```
 ##### Recover:
->stdin:
+<b>stdin:
 ```
 key_shard_1
 ket_shard_2
@@ -33,18 +33,18 @@ ket_shard_2
 key_shard_m
 ```
 
->stdout:
+<b>stdout:
 ```
 key
 ```
 
-#### Краткое описание:
+### Краткое описание:
 Разделяет ключ на несколько шард-ключей, 
 с некоторым пороговым значением.
 При преъявлении прогового числа шард-ключей
 восстанавливает исходный ключ.
 
-#### Тестовый пример:
+### Тестовый пример:
 ##### Split:
  - Ввели sha256 исходника нашей программы
  - Ввели на сколько шардов делим, и пороговое значение
