@@ -13,7 +13,7 @@ $ ./decent_hw_3 [split|recover]
 ```
 
 #### Split:
-<b> stdin:
+<b> `stdin:`
 ```
 key
 n_share threshold
