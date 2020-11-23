@@ -11,6 +11,6 @@ int main(const int argc, const char *argv[]) {
         return 0;
     }
 
-    std::cout << " ¯\\_(ツ)_/¯ Please, start program in format:\n\t./program_name [split|recover] ";
+    std::cout << "Please, start program in format:\n\t./program_name [split|recover] ";
     return -1;
 }

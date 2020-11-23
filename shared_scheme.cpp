@@ -74,6 +74,10 @@ int recover() {
     for (int i=0; i<threshold; i++)
         strSources[i]->PumpAll();
 
+    if(recovered.empty()) {
+        std::cout << " ¯\\_(ツ)_/¯ ";
+        return -1;
+    }
     std::cout << recovered;
     return 0;
 }
