@@ -3,13 +3,13 @@
 #### Сборка с помощью cmake:
 ```
 $ git clone git@github.com:ur-os/decent_hw-3.git
-$ cd hw-3_ur0s && mkdir build && cd build
-$ cmake ./
+$ cd decent_hw-3 && mkdir build && cd build
+$ cmake ../
 $ make
 ```
 #### Использование:
 ```
-$ ./hw-3_ur0s [split|recover]
+$ ./decent_hw_3 [split|recover]
 ```
 ##### Split:
 >stdin:
